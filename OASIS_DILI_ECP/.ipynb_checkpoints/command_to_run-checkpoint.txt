@@ -1,0 +1,10 @@
+
+#-------- first we run the first two plates. So, here is the tricky part: first, you need to generate the layout for the 2 plates but you need to also get a special output, so you can run it like this:--------#
+
+/home/jovyan/bin/minizinc/bin/minizinc plate-design.mzn show_output.mzn OASIS_JUMP-Target2_ECP_2plates.dzn -r $RANDOM -p 8
+
+
+
+#-------- This will give you the normal layout csv but it will also print an array of numbers in the end. You need to copy that into fixed_plates_code.mzn (there is one such matrix there so you can replace it) and then plan 4 plates like this:--------#
+
+/home/jovyan/bin/minizinc/bin/minizinc plate-design.mzn fixed_plates_code_1dose.mzn OASIS_JUMP-Target2_ECP.dzn -r $RANDOM -p 8 > output/OASIS_DILI_ECP_PLAID.csv
